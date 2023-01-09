@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan('combined'));
 
-app.use('/api/test', testRoute);
+app.use('/api/basic', testRoute);
 
 app.listen(8800, () => {
   console.log('Backend iniciado! 🤖')
