@@ -25,4 +25,4 @@ app.use('/api/test', testRoute);
 
 app.listen(8800, () => {
   console.log('Backend iniciado! 🤖')
-})
+});

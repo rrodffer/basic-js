@@ -1,6 +1,15 @@
-const { json } = require("express");
+async function basicGet(req, res, next) {
+  try {
+    console.log('Mid de teste.');
 
-async function testGet(req, res, next) {
+    return res.status(200).json({ ok: true });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ error: 'Não foi possível cadastrar o usuário' });
+  }
+};
+
+async function basicPost(req, res, next) {
   try {
     console.log('Mid de teste.');
 
@@ -12,5 +21,6 @@ async function testGet(req, res, next) {
 };
 
 module.exports = {
-  testGet
+  basicPost,
+  basicGet
 }
