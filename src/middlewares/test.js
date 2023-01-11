@@ -127,10 +127,43 @@ async function ShortSyntax(req, res, next) {
   }
 };
 
+async function OptionalChaining(req, res, next) {
+  try {
+    // Optional Chaining
+
+    const user = {
+      name: 'Johnny',
+      age: 33,
+      address: {
+        street: 'Rua ABC',
+        number: 222,
+        zip: {
+          code: '999999'
+        },
+        // showAddress() {
+        //   return 'Endereço'
+        // }
+      }
+    }
+
+
+
+    console.log('CEP: ', user.address?.zip?.code ?? 'Não informado');
+    console.log('CHAMA FUNÇÃO: ', user.address?.showAddress?.());
+    console.log('Usando key: ', user.address['city']);
+
+    return res.status(200).json({ 'CEP': user.address?.zip?.code ?? 'Não informado' });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(error.message);
+  }
+};
+
 module.exports = {
   NullishCoalescingOperator,
   Objects,
   basicGet,
   RestOperator,
-  ShortSyntax
+  ShortSyntax,
+  OptionalChaining
 }
