@@ -76,8 +76,40 @@ async function Objects(req, res, next) {
   }
 };
 
+async function RestOperator(req, res, next) {
+  try {
+    const user = {
+      firstName: 'Rayron',
+      lastName: 'Rodffer',
+      birthDate: '27/11/1996'
+    };
+
+    // Rest operator
+    const { birthDate, ...rest } = user;
+
+    console.log('Rest Operator:', rest);
+
+    const array = [1, 2, 3, 4, 5, 6, 7];
+
+    const [first, second, ...restArray] = array;
+
+    console.log('Rest Operator Array:', restArray);
+
+    const [firstItem, , thirdItem, ...skipItem] = array;
+
+    console.log('Rest Operator Skip Item:', skipItem);
+
+
+    return res.status(200).json({ 'objeto': rest, 'lista': restArray, 'pulaItem': { firstItem, thirdItem, skipItem } });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ error: 'Não foi possível cadastrar o usuário' });
+  }
+};
+
 module.exports = {
   NullishCoalescingOperator,
   Objects,
-  basicGet
+  basicGet,
+  RestOperator
 }
