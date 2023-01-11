@@ -6,5 +6,6 @@ router.get('/basic', basicMiddleware.basicGet);
 router.post('/nullishCoalescingOperator', basicMiddleware.NullishCoalescingOperator);
 router.post('/object', basicMiddleware.Objects);
 router.post('/restOperator', basicMiddleware.RestOperator);
+router.post('/shortSyntax', basicMiddleware.ShortSyntax);
 
 module.exports = router;

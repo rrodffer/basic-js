@@ -107,9 +107,30 @@ async function RestOperator(req, res, next) {
   }
 };
 
+async function ShortSyntax(req, res, next) {
+  try {
+    // Short Syntax
+
+    const name = 'Rayron';
+    const age = 26;
+
+    const user = {
+      name,
+      age
+    }
+
+
+    return res.status(200).json(user);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ error: 'Não foi possível cadastrar o usuário' });
+  }
+};
+
 module.exports = {
   NullishCoalescingOperator,
   Objects,
   basicGet,
-  RestOperator
+  RestOperator,
+  ShortSyntax
 }
